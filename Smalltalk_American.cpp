@@ -7,7 +7,6 @@
 
 #include "./includes/Smalltalk_American.h"
 #include "./includes/constants.h"
-#include "./includes/Smalltalk.h"
 
 Smalltalk_American::Smalltalk_American(int iPerson) :
 		Smalltalk(AMERICAN, iPerson) {
