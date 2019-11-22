@@ -25,15 +25,19 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit, int numAmerican,
 	std::vector<std::unique_ptr<Smalltalk>> st;
 	//add brits to vector
 	for (int i = 0; i < numBrit; i++) {
-		// pushback numBrits
+		std::unique_ptr<Smalltalk_Brit> stb(new Smalltalk_Brit(i));
+		st.push_back(std::move(stb));
 	}
 	//add americans  to vector
 	for (int i = 0; i < numAmerican; i++) {
-		// pushback numAmericans
+		std::unique_ptr<Smalltalk_American> sta(new Smalltalk_American(i));
+		st.push_back(std::move(sta));
 	}
 	//add american donut enthusiest  to vector
 	for (int i = 0; i < numbAmericanDonutEnthusiest; i++) {
-		// pushback numAmericanDEs
+		std::unique_ptr<ST_American_DonutEnthusiest> stde(
+				new ST_American_DonutEnthusiest(i));
+		st.push_back(std::move(stde));
 	}
 	//create some watches (as long as number watches <= numb people)
 	//then give the watches away to first NUM_WATCHES people in the vector

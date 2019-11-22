@@ -10,7 +10,7 @@
 // derived class will set Nationality, iPerson
 // iPerson is just a counter used to distinguish between objects of the same type
 Smalltalk::Smalltalk(std::string myNationality, int iPerson) :
-		nationality(myNationality), iPerson(iPerson), current_phrase(-100) {
+		nationality(myNationality), iPerson(iPerson), current_phrase(0) {
 
 }
 
