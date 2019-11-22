@@ -44,8 +44,3 @@ std::unique_ptr<Watch> Smalltalk::takeWatch() {
 bool Smalltalk::giveWatch(std::unique_ptr<Watch> &pWatch) {
 	return false;
 }
-
-// Abstract Base Class (ABC), implement in derived classes
-void Smalltalk::populatePhrases() {
-
-}
