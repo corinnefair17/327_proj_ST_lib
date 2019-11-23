@@ -2,7 +2,7 @@
  * ST_American_DonutEnthusiest.cpp
  *
  *  Created on: Nov 18, 2019
- *      Author: corinne
+ *      Author: corinne fair
  */
 
 #include "./includes/ST_American_DonutEnthusiest.h"

@@ -3,7 +3,7 @@
  * Functions.cpp
  *
  *  Created on: Nov 5, 2017
- *      Author: keith
+ *      Author: Corinne Fair
  */
 #include <iostream>
 #include <memory>
