@@ -12,7 +12,7 @@
 // derived class will set Nationality, iPerson
 // iPerson is just a counter used to distinguish between objects of the same type
 Smalltalk::Smalltalk(std::string myNationality, int iPerson) :
-		nationality(myNationality), iPerson(iPerson), current_phrase(0) {
+		nationality(myNationality), iPerson(iPerson), current_phrase(0), pWatch() {
 
 }
 
@@ -36,8 +36,7 @@ std::string Smalltalk::saySomething() {
 		result += heading + AMERICAN_PHRASE_4 + "\n";
 		result += heading + AMERICAN_PHRASE_5 + "\n";
 		result += heading + AMERICAN_PHRASE_1 + "\n";
-	}
-	else if (nationality == AMERICAN_DE) {
+	} else if (nationality == AMERICAN_DE) {
 		result += heading + AMERICAN_PHRASE_1 + "\n";
 		result += heading + AMERICAN_PHRASE_2 + "\n";
 		result += heading + AMERICAN_PHRASE_3 + "\n";
@@ -49,8 +48,7 @@ std::string Smalltalk::saySomething() {
 		result += heading + AMERICAN_DE_PHRASE_4 + "\n";
 		result += heading + AMERICAN_DE_PHRASE_5 + "\n";
 		result += heading + AMERICAN_PHRASE_1 + "\n";
-	}
-	else if (nationality == BRIT) {
+	} else if (nationality == BRIT) {
 		result += heading + BRIT_1 + "\n";
 		result += heading + BRIT_2 + "\n";
 		result += heading + BRIT_3 + "\n";
@@ -70,22 +68,24 @@ std::string Smalltalk::getTime() {
 	if (pWatch == 0) {
 		return I_DO_NOT_HAVE_A_WATCH;
 	}
-	return "\0";
+	Watch w = *pWatch;
+	return w.getTime();
 }
 
 // if this object has a watch it is taken away, otherwise an empty unique_ptr is returned
 // This transaction simulates giving away a watch
 std::unique_ptr<Watch> Smalltalk::takeWatch() {
 	if (pWatch == 0) {
-		// return std::unique_ptr<Watch> watch;
+		return std::unique_ptr<Watch>{};
 	}
-	return nullptr;
+	std::unique_ptr<Watch> watch = std::move(pWatch);
+	return watch;
 }
 
 // if already have a watch then return false and dont change pWatch pointer
 // otherwise accept watch (return true) and set this->pWatch=pWatch (use std::move)
 bool Smalltalk::giveWatch(std::unique_ptr<Watch> &pWatch) {
-	if (pWatch != 0) {
+	if (this->pWatch != 0) {
 		return false;
 	}
 	this->pWatch = std::move(pWatch);
