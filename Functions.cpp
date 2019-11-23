@@ -57,11 +57,9 @@ std::vector<std::unique_ptr<Smalltalk>> getPeople(int numBrit, int numAmerican,
 		if (i < numWatches) {
 			std::unique_ptr<Watch> watch = std::unique_ptr<Watch>(new Watch());
 			st[i].get()->giveWatch(watch);
-			std::cout << st[i].get()->getTime() << std::endl;
 		} else {
 			std::unique_ptr<Watch> watch = 0;
 			st[i].get()->giveWatch(watch);
-			std::cout << st[i].get()->getTime() << std::endl;
 		}
 	}
 
